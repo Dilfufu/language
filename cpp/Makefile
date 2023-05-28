@@ -6,8 +6,11 @@ CXXFLAGS = -Wall -O2
 # 링커 옵션
 LDFLAGS =
 
+# study할 chapter directory
+CHAPTER ?= 1
+
 # 소스 파일 디렉토리
-SRC_DIR = ./src
+SRC_DIR = ./src/chapter$(CHAPTER)
 
 # 오브젝트 파일 디렉토리
 OBJ_DIR = ./obj
@@ -17,6 +20,7 @@ INC_DIR = ./include
 
 # 생성하고자 하는 실행 파일 이름
 TARGET = STUDY_CPP
+
 
 # Make 할 소스 파일들
 # wildcard 로 SRC_DIR 에서 *.cc 로 된 파일들 목록을 뽑아낸 뒤에
@@ -40,6 +44,6 @@ $(TARGET) : $(OBJECTS)
 
 .PHONY: clean all
 clean:
-	rm -f $(OBJECTS) $(DEPS) $(TARGET)
+	rm -f $(OBJ_DIR)/* $(TARGET)
 
 -include $(DEPS)
