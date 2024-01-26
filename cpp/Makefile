@@ -1,22 +1,19 @@
 CC = g++
 
 # C++ 컴파일러 옵션
-CXXFLAGS = -Wall -O2
+CXXFLAGS = -W -Wall -O2 -g
 
 # 링커 옵션
 LDFLAGS =
 
-# study할 chapter directory
-CHAPTER ?= 1
-
 # 소스 파일 디렉토리
-SRC_DIR = ./src/chapter$(CHAPTER)
+SRC_DIR = ./src
 
 # 오브젝트 파일 디렉토리
 OBJ_DIR = ./obj
 
 # include 파일 디렉토리
-INC_DIR = ./include
+INC_DIR = ./inc
 
 # 생성하고자 하는 실행 파일 이름
 TARGET = STUDY_CPP
@@ -27,7 +24,6 @@ TARGET = STUDY_CPP
 # notdir 로 파일 이름만 뽑아낸다.
 # (e.g SRCS 는 foo.cc bar.cc main.cc 가 된다.) 
 SRCS = $(notdir $(wildcard $(SRC_DIR)/*.cpp))
-
 OBJS = $(SRCS:.cpp=.o)
 
 # OBJS 안의 object 파일들 이름 앞에 $(OBJ_DIR)/ 을 붙인다.
